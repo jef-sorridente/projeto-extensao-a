@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-margin-top: 32px;
+}
+
+:root {
+  --primary-color: #004aad;
+  --primary-color-wt: #245eac;
+  --secondary-color: #e6e6e6;
+  --black: #000000;
+  --white: #ffffff;
+}
+
+body {
+  background-color: var(--secondary-color);
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+.title,
+.subtitle,
+.title span {
+  font-family: "Anton", sans-serif;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.title {
+  color: var(--primary-color);
+  font-size: 96px;
+  line-height: 100%;
+  text-transform: uppercase;
+
+  span {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--primary-color);
+    text-transform: lowercase;
+  }
+}
+
+.subtitle {
+  font-size: 64px;
+}
+
+.text {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section {
+  padding: 90px 0;
+}
+/* global */
+
+.header {
+  width: 100%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  background-color: var(--secondary-color);
+  z-index: 10;
+
+  .container {
+    padding: 32px 20px;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title-header {
+      font-size: 20px;
+
+      a {
+        text-decoration: none;
+        color: var(--primary-color);
+      }
+    }
+
+    .menu {
+      .menu-list {
+        display: flex;
+        gap: 16px;
+        .menu-item {
+          font-size: 18px;
+          list-style-type: none;
+          a {
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color ease 0.5s;
+
+            &:hover {
+              color: var(--primary-color-wt);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* header */
+
+.section-banner {
+  padding-top: 180px;
+}
+/* section-banner */
+
+.section-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .image {
+    width: 848px;
+    object-position: top;
+    object-fit: cover;
+    border: 16px solid var(--white);
+  }
+}
+/* section-image */
+
+.section-resume {
+  .container-resume {
+    display: flex;
+    gap: 32px;
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .image {
+      max-width: 848px;
+      width: 100%;
+      object-fit: cover;
+      border: 16px solid var(--white);
+    }
+  }
+}
+/* section-resume */
+
+.section-objectves {
+  .container-objectives {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+
+    .card {
+      background-color: var(--white);
+      padding: 32px;
+      position: relative;
+
+      &:last-child {
+        grid-column: span 2;
+      }
+
+      .card-title {
+        color: var(--primary-color);
+        font-family: "Anton", sans-serif;
+        font-size: 32px;
+        line-height: 38px;
+        font-weight: 500;
+        margin-bottom: 16px;
+      }
+
+      .list {
+        padding-left: 20px;
+      }
+
+      .btn-objectives {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 50px;
+        border: none;
+        background-color: var(--primary-color);
+        transition: 0.5s ease background;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--primary-color-wt);
+        }
+      }
+    }
+  }
+}
+/* section-objectves */
+
+.section-students {
+  .swiper {
+    padding-top: 32px;
+    position: relative;
+
+    .conatiner-buttons {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: calc(33% + 32px);
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      z-index: 1;
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: var(--white);
+        width: 50px;
+        height: 50px;
+        padding: 12px;
+
+        &::after {
+          content: none;
+        }
+      }
+    }
+
+    .swiper-slide {
+      background-color: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      /* max-width: 329px; */
+      padding: 16px;
+      transition: all 0.5s ease;
+      height: auto;
+
+      h3 {
+        color: var(--primary-color);
+        font-family: "Anton", sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 38px;
+      }
+
+      &.swiper-slide-active {
+        margin-right: 114px !important;
+      }
+    }
+  }
+}
+/* section-students */
