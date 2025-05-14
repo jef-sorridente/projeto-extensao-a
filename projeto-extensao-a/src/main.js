@@ -43,29 +43,31 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  // scroll smoother
-  const smoother = ScrollSmoother.create({
-    smooth: 1,
-    effects: true,
-    smoothTouch: 0.1,
-    smooth: 1.5,
-  });
-
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      const targetId = link.getAttribute("href");
-      const target = document.querySelector(targetId);
-
-      if (target) {
-        const offset = 62;
-        const targetY =
-          target.getBoundingClientRect().top + window.scrollY - offset;
-        smoother.scrollTo(targetY, true);
-      }
+  const scroll = () => {
+    // scroll smoother
+    const smoother = ScrollSmoother.create({
+      smooth: 1,
+      effects: true,
+      smoothTouch: 0.1,
+      smooth: 1.5,
     });
-  });
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const targetId = link.getAttribute("href");
+        const target = document.querySelector(targetId);
+
+        if (target) {
+          const offset = 62;
+          const targetY =
+            target.getBoundingClientRect().top + window.scrollY - offset;
+          smoother.scrollTo(targetY, true);
+        }
+      });
+    });
+  };
 
   const sectionImage = () => {
     gsap.from(".path-line", {
@@ -142,4 +144,9 @@ document.addEventListener("DOMContentLoaded", () => {
   sectionImage();
   accordion();
   dropMenu();
+
+  if (window.innerWidth > 768) {
+    console.log("teste");
+    scroll();
+  }
 });
