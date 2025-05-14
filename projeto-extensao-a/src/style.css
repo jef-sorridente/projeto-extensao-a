@@ -44,6 +44,8 @@ body {
 
 .subtitle {
   font-size: 42px;
+  line-height: 52px;
+  margin-bottom: 16px;
 }
 
 @media (min-width: 992px) {
@@ -53,12 +55,18 @@ body {
 
   .subtitle {
     font-size: 64px;
+    font-size: 74px;
+    margin-bottom: 32px;
   }
 }
 
 .text {
   font-size: 18px;
-  line-height: 24px;
+  line-height: 28px;
+
+  small {
+    line-height: 14px;
+  }
 }
 
 .container {
@@ -68,11 +76,11 @@ body {
 }
 
 .section {
-  padding: 3.75rem 0;
+  padding-top: 3.75rem;
 }
 @media (min-width: 992px) {
   .section {
-    padding: 90px 0;
+    padding-top: 90px;
   }
   .container {
     padding: 0 40px;
