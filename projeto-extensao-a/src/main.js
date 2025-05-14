@@ -144,9 +144,5 @@ document.addEventListener("DOMContentLoaded", () => {
   sectionImage();
   accordion();
   dropMenu();
-
-  if (window.innerWidth > 768) {
-    console.log("teste");
-    scroll();
-  }
+  scroll();
 });

@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  scroll-margin-top: 64px;
 }
 
 :root {
@@ -76,7 +77,6 @@ body {
 
 .section {
   padding-top: 3.75rem;
-  scroll-margin-top: 100px;
 }
 @media (min-width: 992px) {
   .section {
