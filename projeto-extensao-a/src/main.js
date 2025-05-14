@@ -109,6 +109,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth < 1440) {
       menuItem.forEach((a) => {
         a.addEventListener("click", () => {
+          lines.forEach((line) => {
+            line.classList.toggle("active");
+          });
           if (menu.style.maxHeight) {
             menu.style.maxHeight = null;
             menu.style.opacity = 0;
