@@ -30,7 +30,7 @@ body {
 
 .title {
   color: var(--primary-color);
-  font-size: 96px;
+  font-size: 50px;
   line-height: 100%;
   text-transform: uppercase;
 
@@ -43,7 +43,17 @@ body {
 }
 
 .subtitle {
-  font-size: 64px;
+  font-size: 42px;
+}
+
+@media (min-width: 992px) {
+  .title {
+    font-size: 96px;
+  }
+
+  .subtitle {
+    font-size: 64px;
+  }
 }
 
 .text {
@@ -54,11 +64,19 @@ body {
 .container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 20px;
 }
 
 .section {
-  padding: 90px 0;
+  padding: 3.75rem 0;
+}
+@media (min-width: 992px) {
+  .section {
+    padding: 90px 0;
+  }
+  .container {
+    padding: 0 40px;
+  }
 }
 /* global */
 
@@ -71,7 +89,7 @@ body {
   z-index: 10;
 
   .container {
-    padding: 32px 20px;
+    padding: 16px;
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
@@ -79,9 +97,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+    gap: 16px;
 
     .title-header {
       font-size: 20px;
+      text-align: center;
 
       a {
         text-decoration: none;
@@ -111,10 +132,33 @@ body {
     }
   }
 }
+
+@media (min-width: 992px) {
+  .header {
+    .container {
+      padding: 32px 20px;
+      flex-direction: row;
+      gap: 0;
+
+      .title-header {
+        text-align: start;
+      }
+    }
+  }
+}
 /* header */
 
 .section-banner {
   padding-top: 180px;
+  padding-bottom: 0;
+}
+
+@media (min-width: 992px) {
+  .section-banner,
+  .section-image,
+  .section-resume {
+    padding-bottom: 90px;
+  }
 }
 /* section-banner */
 
@@ -122,19 +166,55 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  padding-bottom: 0;
 
   .image {
     width: 848px;
+    width: 100%;
+    height: auto;
     object-position: top;
-    object-fit: cover;
-    border: 16px solid var(--white);
+    object-fit: contain;
+  }
+
+  .container-lines {
+    position: absolute;
+    width: 100vw;
+    top: 90px;
+
+    .line {
+      width: 100%;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .line-2 {
+      top: 50px;
+    }
+    .line-3 {
+      top: 100px;
+    }
+    .line-4 {
+      top: 150px;
+    }
+    .line-5 {
+      top: 200px;
+    }
+    .line-6 {
+      top: 250px;
+    }
   }
 }
 /* section-image */
 
 .section-resume {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 0;
+
   .container-resume {
     display: flex;
+    flex-direction: column-reverse;
     gap: 32px;
 
     .description {
@@ -144,10 +224,26 @@ body {
     }
 
     .image {
-      max-width: 848px;
       width: 100%;
+      height: 400px;
       object-fit: cover;
-      border: 16px solid var(--white);
+      object-position: top;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .section-resume {
+    .container-resume {
+      flex-direction: row;
+      .description,
+      .image {
+        width: 50%;
+      }
+      .image {
+        max-width: 848px;
+        height: 100%;
+      }
     }
   }
 }
@@ -156,7 +252,7 @@ body {
 .section-objectves {
   .container-objectives {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 16px;
 
     .card {
@@ -164,21 +260,13 @@ body {
       padding: 32px;
       position: relative;
 
-      &:last-child {
-        grid-column: span 2;
-      }
-
       .card-title {
         color: var(--primary-color);
         font-family: "Anton", sans-serif;
-        font-size: 32px;
-        line-height: 38px;
+        font-size: 28px;
+        line-height: 100%;
         font-weight: 500;
         margin-bottom: 16px;
-      }
-
-      .list {
-        padding-left: 20px;
       }
 
       .btn-objectives {
@@ -198,6 +286,78 @@ body {
       }
     }
   }
+
+  .especifics {
+    background-color: #fff;
+    padding: 32px;
+    margin-top: 16px;
+
+    .card-title {
+      color: var(--primary-color);
+      font-family: "Anton", sans-serif;
+      font-size: 32px;
+      line-height: 38px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .accordion-button {
+      background-color: transparent;
+      border: none;
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--primary-color);
+      font-family: "Inter", sans-serif;
+      cursor: pointer;
+      text-align: start;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 1rem 0;
+      gap: 1rem;
+
+      img {
+        transition: 0.3s ease rotate;
+      }
+
+      &.active {
+        img {
+          rotate: 180deg;
+        }
+      }
+    }
+
+    .accordion-collapse {
+      max-height: 0;
+      overflow: hidden;
+      transition: all ease 0.5s;
+
+      .content {
+        padding: 1rem;
+
+        strong {
+          font-size: 18px;
+          color: var(--primary-color);
+          margin-bottom: 8px;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .section-objectves {
+    grid-template-columns: repeat(2, 1fr);
+
+    .card-title {
+      font-size: 32px;
+      line-height: 38px;
+    }
+  }
 }
 /* section-objectves */
 
@@ -210,8 +370,8 @@ body {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      left: calc(33% + 32px);
-      display: flex;
+      left: calc(33% + 13px);
+      display: none;
       flex-direction: column;
       gap: 32px;
       z-index: 1;
@@ -234,6 +394,19 @@ body {
       }
     }
 
+    .swiper-pagination {
+      position: relative;
+      bottom: 0;
+      padding: 16px;
+
+      .swiper-pagination-bullet {
+        background: var(--primary-color);
+        width: 16px;
+        height: 6px;
+        border-radius: 0;
+      }
+    }
+
     .swiper-slide {
       background-color: var(--white);
       display: flex;
@@ -251,7 +424,19 @@ body {
         font-size: 24px;
         line-height: 38px;
       }
+    }
+  }
+}
 
+@media (min-width: 992px) {
+  .section-students {
+    .swiper {
+      .conatiner-buttons {
+        display: flex;
+      }
+    }
+
+    .swiper-slide {
       &.swiper-slide-active {
         margin-right: 114px !important;
       }

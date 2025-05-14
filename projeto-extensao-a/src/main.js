@@ -1,6 +1,6 @@
 // swiper
 import Swiper from "swiper";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -18,7 +18,7 @@ gsap.registerPlugin(DrawSVGPlugin, ScrollTrigger, SplitText, ScrollSmoother);
 document.addEventListener("DOMContentLoaded", () => {
   // swiper
   let swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,
+    slidesPerView: 1,
     slidesPerGroup: 1,
     loop: true,
     spaceBetween: 32,
@@ -26,15 +26,23 @@ document.addEventListener("DOMContentLoaded", () => {
     freeMode: true,
     freeModeMomentum: true,
     freeModeMomentumVelocityRatio: 0.5,
-    modules: [Navigation],
+    modules: [Navigation, Pagination],
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    breakpoints: {
+      992: {
+        slidesPerView: 3,
+        slidesPerGroup: 1,
+      },
+    },
   });
 
   // scroll smoother
-  // create the scrollSmoother before your scrollTriggers
   const smoother = ScrollSmoother.create({
     smooth: 1,
     effects: true,
@@ -55,33 +63,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // gsap
-  // gsap.set(".section-banner", { opacity: 1 });
-  // let split = SplitText.create(".title", { type: "words" });
-
-  // gsap.from(split.words, {
-  //   opacity: 0,
-  //   duration: 2,
-  //   ease: "sine.out",
-  //   stagger: 0.1,
-  // });
-
-  // // trigger
-  const triggerImage = () => {
-    let tl = gsap.timeline({
+  const sectionImage = () => {
+    gsap.from(".path-line", {
       scrollTrigger: {
         trigger: ".section-image",
-        pin: true,
-        start: "top",
+        start: "top center",
         scrub: 3,
       },
-    });
-
-    tl.to("#image-1", {
-      width: 1200,
+      drawSVG: "0%",
+      duration: 3,
     });
   };
 
-  // // inits
-  triggerImage();
+  const accordion = () => {
+    let acc = document.getElementsByClassName("accordion-button");
+
+    for (let i = 0; i < acc.length; i++) {
+      acc[0].classList.add("active");
+      let panel = acc[0].nextElementSibling;
+      panel.style.maxHeight = `${panel.scrollHeight}px`;
+
+      acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        let panel = this.nextElementSibling;
+
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = `${panel.scrollHeight}px`;
+        }
+      });
+    }
+  };
+
+  // inits
+  sectionImage();
+  accordion();
 });
