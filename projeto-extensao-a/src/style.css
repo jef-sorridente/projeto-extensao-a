@@ -179,8 +179,8 @@ body {
 
   .container-lines {
     position: absolute;
-    width: 100vw;
-    top: 90px;
+    width: 1920px;
+    top: -450px;
 
     .line {
       width: 100%;
@@ -202,6 +202,14 @@ body {
     }
     .line-6 {
       top: 250px;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .section-image {
+    .container-lines {
+      top: 90px;
     }
   }
 }
