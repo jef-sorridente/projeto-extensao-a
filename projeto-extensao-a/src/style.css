@@ -504,7 +504,7 @@ body {
       background-color: var(--white);
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      /* gap: 16px; */
       /* max-width: 329px; */
       padding: 16px;
       transition: all 0.5s ease;
