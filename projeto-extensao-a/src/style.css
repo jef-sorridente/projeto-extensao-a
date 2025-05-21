@@ -17,6 +17,7 @@
 html {
   overflow-x: hidden;
 }
+
 body {
   background-color: var(--secondary-color);
   font-family: "Inter", sans-serif;
@@ -81,18 +82,18 @@ body {
 .section {
   padding-top: 3.75rem;
 }
+
 @media (min-width: 992px) {
   .section {
     padding-top: 90px;
   }
+
   .container {
     padding: 0 40px;
   }
-  .text {
-    font-size: 18px;
-    line-height: 28px;
-  }
+
 }
+
 /* global */
 
 .header {
@@ -140,6 +141,7 @@ body {
           font-size: 16px;
           list-style-type: none;
           text-align: start;
+
           a {
             font-weight: bold;
             text-decoration: none;
@@ -173,14 +175,17 @@ body {
 
         &.line-1 {
           top: 0;
+
           &.active {
             rotate: 45deg;
             top: 13px;
           }
         }
+
         &.line-2 {
           top: 50%;
           transform: translateY(-50%);
+
           &.active {
             opacity: 0;
           }
@@ -188,6 +193,7 @@ body {
 
         &.line-3 {
           bottom: 0;
+
           &.active {
             rotate: -45deg;
             bottom: 12px;
@@ -220,7 +226,7 @@ body {
 
           .menu-item {
             text-align: center;
-            font-size: 18px;
+            font-size: 16px;
           }
         }
       }
@@ -240,12 +246,14 @@ body {
 }
 
 @media (min-width: 992px) {
+
   .section-banner,
   .section-image,
   .section-resume {
     padding-bottom: 90px;
   }
 }
+
 /* section-banner */
 
 .section-image {
@@ -277,15 +285,19 @@ body {
     .line-2 {
       top: 50px;
     }
+
     .line-3 {
       top: 100px;
     }
+
     .line-4 {
       top: 150px;
     }
+
     .line-5 {
       top: 200px;
     }
+
     .line-6 {
       top: 250px;
     }
@@ -299,6 +311,7 @@ body {
     }
   }
 }
+
 /* section-image */
 
 .section-resume {
@@ -314,7 +327,8 @@ body {
     .description {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 16px;
+
     }
 
     .image {
@@ -324,16 +338,37 @@ body {
       object-position: top;
     }
   }
+
+  .description-plus {
+    margin-top: 50px;
+
+    ul {
+      padding: 20px;
+
+      li {
+        font-size: 16px;
+        line-height: 28px;
+
+        &.title-list {
+          color: var(--primary-color);
+          list-style: none;
+          font-size: 18px;
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 992px) {
   .section-resume {
     .container-resume {
       flex-direction: row;
+
       .description,
       .image {
         width: 50%;
       }
+
       .image {
         max-width: 848px;
         height: 100%;
@@ -341,6 +376,7 @@ body {
     }
   }
 }
+
 /* section-resume */
 
 .section-objectves {
@@ -455,6 +491,7 @@ body {
     }
   }
 }
+
 /* section-objectves */
 
 .section-students {
@@ -539,6 +576,7 @@ body {
     }
   }
 }
+
 /* section-students */
 
 /* section-comunication */
@@ -584,6 +622,7 @@ body {
   .section-comunication {
     .conatiner-card {
       grid-template-columns: repeat(2, 1fr);
+
       .card {
         .card-title {
           font-size: 22px;
@@ -617,6 +656,7 @@ body {
   .container {
     padding: 90px 20px;
     text-align: center;
+
     .subtitle {
       color: var(--white);
     }
