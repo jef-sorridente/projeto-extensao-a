@@ -91,7 +91,6 @@ body {
   .container {
     padding: 0 40px;
   }
-
 }
 
 /* global */
@@ -246,7 +245,6 @@ body {
 }
 
 @media (min-width: 992px) {
-
   .section-banner,
   .section-image,
   .section-resume {
@@ -328,7 +326,6 @@ body {
       display: flex;
       flex-direction: column;
       gap: 16px;
-
     }
 
     .image {
@@ -340,8 +337,6 @@ body {
   }
 
   .description-plus {
-    margin-top: 50px;
-
     ul {
       padding: 20px;
 
@@ -374,6 +369,10 @@ body {
         height: 100%;
       }
     }
+  }
+
+  .description-plus {
+    margin-top: 50px;
   }
 }
 
